@@ -10,15 +10,12 @@ var recursion = function (number) {
   return recursion(number - 1) + recursion(number - 2);
 }
 
-prompt.get(['limit'], function (err, result) {
-  if (err) { return onErr(err); }
-  var limit = result.limit;
+prompt.get(['number', 'power'], function (err, result) {
+  for (var i = 1; i <= power; i++) {
+    number = number * number;
+  };
 
-  for (var i = 1; i <= limit; i++) {
-    console.log(recursion(i) + " ");
-  }
-
-
+  console.log(number);
 });
 
 function onErr(err) {
